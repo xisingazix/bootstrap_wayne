@@ -54,6 +54,7 @@ The keyword !important declares higher priority over the specific style rules fo
   letter-spacing: 0.8rem;
 }
 
+
 .herobanner h1{
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 196, 0, 0.75), rgba(255, 255, 255, 0))
 }
@@ -71,7 +72,7 @@ The keyword !important declares higher priority over the specific style rules fo
 
 .homepage-card img {
   width: 100%;
-  height: 10rem;
+  height: 12rem;
   object-fit: cover;
   background-size:cover;
   background-position: center center;
@@ -79,3 +80,4 @@ The keyword !important declares higher priority over the specific style rules fo
   background-image: url("https://placehold.co/100x100/orange/white?text=Image Placeholder");
   /* text-indent: -9999px; */ /* remove or comment out if all images are available */
 }
+
