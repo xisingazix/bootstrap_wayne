@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Boostrap Style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- 5. Import Custom Stylesheet-->
+    <!-- TODO -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <!--This is where all the HTML tag reside-->
+
+    <!--Toast container-->
+    <div class="toast-container p-3 top-0 start-50 translate-middle-x">
+        <!--Toast-->
+        <div id="msg-toast" class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="4000">
+            <div class="d-flex">
+                <div class="toast-body" id="msg-toast-body">
+                    I see my toast
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!--1.Container for site main nav and header(hero section)-->
+    <div class="container mi-vh-75 p-4 fw-lighter">
+        <!--Navbar-->
+        <!-- sm(higher tolerance) to xxl(lower tolerance) to react to view changes -->
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <!--Site logo here-->
+                    <img src="img/logo-small.png" alt="Company logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav mx-auto d-flex w-100 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap" href="/index.html" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap" aria-current="page" href="/contact.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-nowrap" aria-current="page" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap" aria-current="page" href="#">Sign-in/Log-in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--2. Container for contact form-->
+    <div class="container w-50 mt-4">
+        <!--Page Title: Contact Us-->
+        <div>
+            <h1 class="display-4 text-white fw-lighter">
+                Contact Us
+            </h1>
+        </div>
+        <!--Feedback form-->
+        <!--onsubmit is an event handler listening for the submit event-->
+        <form action="" class="needs-validation" novalidate onsubmit="submitForm();">
+            <div class="mb-3">
+                <label for="txtEmail" class="form-label text-white fw-lighter">
+                    Email Address:</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="johndoe@example.com" required />
+            </div>
+            <div class="mb-3">
+                <label for="txtMessage" class="form-label text-white fw-lighter">
+                    Message:</label>
+                <textarea class="form-control" id="txtMessage" rows="3" placeholder="Your message here."
+                    required></textarea>
+            </div>
+
+            <!--Submit Button-->
+            <div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Send
+                </button>
+                <button type="reset" class="btn btn-secondary btn-block mt-4">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Reset
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <!--4.Cutstom Footer for copyright information-->
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom border-secondary border-opacity-50 mb-3">
+                <li class="nav-item"><a href="/index.html" class="nav-link px-2 text-white fw-lighter ">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-white fw-lighter ">About</a></li>
+                <li class="nav-item"><a href="/contact.html" class="nav-link px-2 text-white fw-lighter ">Contact</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-white fw-lighter ">Sign-up/Login</a></li>
+            </ul>
+            <p class="text-center text-white fw-lighter">&copy; 2025 Airstream &trade; All rights reserved</p>
+        </footer>
+    </div>
+    <!--Boostrap Javascript Library-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!--Internal Script-->
+    <script>
+        async function submitForm() {
+            //TODO - create form validation
+            event.preventDefault();
+
+            //1.create constants to capture the user's inputs
+            const email = document.getElementById("txtEmail");
+            const msg = document.getElementById("txtMessage")
+
+            //2. get the toast on the page o store as objects
+            //-msg-toast
+            //msg-toast-body
+            const toastElement = document.getElementById("msg-toast")
+            const toastBodyElement = document.getElementById("msg-toast-body")
+
+            //3.Test the custom function showToast
+
+            //showToast({ toastElement, toastBodyElement, bgColor: "danger", msg: "Danger message displayed" });
+
+            //4.trap unsuccesful event for txtEmail and txtMessage (if either of them are empty)
+
+            if (email.value === "" || msg.value === "") {
+                //show toast, tell the user all inputs must be filled
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger",
+                    msg: "All inputs must not be empty"
+                });
+                return;
+            }
+
+            //5. trap unsuccessful event for an invalid email address used
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (!emailRegex.test(email.value)) {
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger",
+                    msg: "Email is invalid. Please Check."
+                });
+                return;
+            }
+
+            // 6. trap invalid characters used in the textarea:txtMessage
+            const msgRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/;
+            if (!msgRegex.test(msg.value)) {
+                //show toast ,tell the user his message is not valid
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger",
+                    msg: "Please input a valid message"
+                });
+                return;
+            }
+            //only allow specific characters as per the description of the regular expression(Regex)
+            //reject special characters that may allow code injections scripts/ sql injection
+
+            //Asynchronuous Operation to submit the form to getform.io
+            //Fetch Request to POST the email and message of getform.io account
+            const formData = { email: email.value, message: msg.value }
+
+            //implement a try/catch block (exception handling) to send the form's Data
+            try {
+
+                //try to send the formData, by perform a post request to getform.io
+                // wait for getform to return a response before continuing
+                const response = await fetch(
+                    "https://getform.io/f/aqoexlna",
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData)
+                    }
+                );
+
+                //if response is ok, inform user form is submitted
+                if (response.ok) {
+                    //show toast
+                    showToast({
+                        toastElement,
+                        toastBodyElement,
+                        bgColor: "success",
+                        msg: "Message sent. Redirecting to homepage.",
+                    });
+
+                    // redirect user back to homepage after a short delay for them to read the toast msg
+                    const sleep = (delay) =>
+                        new Promise((resolve) =>
+                            setTimeout(resolve, delay));
+
+                    await sleep(4000);
+                    // page will wait 4sec before doing nxt task
+                    // Redirect the user
+                    const url = "/index.html"
+                    window.location = url;
+                } else {
+                    //error 400,500,403
+                    //manage unsuccessful situation
+                    showToast({
+                        toastElement,
+                        toastBodyElement,
+                        bgColor: "danger",
+                        msg: "Message not sent. Please try again.",
+                    });
+                }
+
+            } catch (error) {
+                //catch the error (if request is not successful)
+                //show toast
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger",
+                    msg: "An error occured. Please try again.",
+                });
+            }
+            // const toast = document.getElementById("msg-toast");
+            //const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast);
+
+            //toastBootstrap.show();
+        }
+
+        //create function to show a toast (to display a custom toast upon invocation)
+        //showToast() takes in a parameter: Object
+        function showToast({ toastElement, toastBodyElement, bgColor, msg }) {
+
+            //Run bootstrap's toast to show activity outcome
+            const toastEl = toastElement;
+            const toastBody = toastBodyElement;
+
+            //TODO: reset toastEl before adding //replacing colors
+            toastEl.classList.remove('bg-success');
+            toastEl.classList.remove('bg-danger');
+
+            toastEl.classList.add(`bg-${bgColor}`); // interpolated string to set the backround color
+            toastEl.classList.add("text-white");
+            toastBody.textContent = msg;
+
+            //Create an instance of a toast object
+            //and invoke the function from the toat object: show()
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+
+        //c) IIFE to render invalid feedback for each invalid input box by bootstrap
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+
+</html>
